@@ -1,0 +1,63 @@
+{
+  "name": "veneer-ui",
+  "version": "0.1.0",
+  "description": "A theming and customization layer on top of shadcn/ui — build once, theme infinitely",
+  "homepage": "https://github.com/mavidelaru/veneer-ui",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mavidelaru/veneer-ui"
+  },
+  "license": "MIT",
+  "author": "mavidelaru",
+  "keywords": ["design-system", "theming", "shadcn", "radix-ui", "tailwind", "react"],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles": "./dist/styles.css"
+  },
+  "files": ["dist"],
+  "sideEffects": ["*.css"],
+  "scripts": {
+    "build": "tsup && pnpm copy-styles",
+    "copy-styles": "cp src/styles/base.css dist/styles.css",
+    "dev": "tsup --watch",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "veneer-ui": "node ./dist/cli/index.js"
+  },
+  "bin": {
+    "veneer-ui": "./dist/cli/index.js"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "tailwindcss": ">=3"
+  },
+  "dependencies": {
+    "@veneer-ui/tokens": "workspace:*",
+    "@radix-ui/react-dialog": "^1.1.0",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-select": "^2.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.0",
+    "@radix-ui/react-tooltip": "^1.1.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "commander": "^12.0.0",
+    "tailwind-merge": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.5"
+  }
+}

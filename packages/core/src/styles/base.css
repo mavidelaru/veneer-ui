@@ -1,0 +1,85 @@
+/*
+ * veneer-ui base styles
+ * Provides CSS custom property fallbacks on :root.
+ * These are overridden by [data-veneer-theme="*"] blocks injected by ThemeProvider.
+ *
+ * Import this once in your app entry point:
+ *   import 'veneer-ui/styles'
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Color fallbacks (neutral theme defaults) */
+    --veneer-color-background: oklch(99.5% 0.001 264);
+    --veneer-color-foreground: oklch(14.2% 0.008 264);
+    --veneer-color-card: oklch(100% 0 0);
+    --veneer-color-card-foreground: oklch(14.2% 0.008 264);
+    --veneer-color-popover: oklch(100% 0 0);
+    --veneer-color-popover-foreground: oklch(14.2% 0.008 264);
+    --veneer-color-primary: oklch(27.9% 0.012 264);
+    --veneer-color-primary-foreground: oklch(98.5% 0.002 264);
+    --veneer-color-secondary: oklch(96.8% 0.003 264);
+    --veneer-color-secondary-foreground: oklch(27.9% 0.012 264);
+    --veneer-color-muted: oklch(96.8% 0.003 264);
+    --veneer-color-muted-foreground: oklch(49.2% 0.018 264);
+    --veneer-color-accent: oklch(96.8% 0.003 264);
+    --veneer-color-accent-foreground: oklch(27.9% 0.012 264);
+    --veneer-color-destructive: oklch(57.5% 0.168 20);
+    --veneer-color-destructive-foreground: oklch(99.5% 0.001 264);
+    --veneer-color-border: oklch(92.8% 0.006 264);
+    --veneer-color-input: oklch(92.8% 0.006 264);
+    --veneer-color-ring: oklch(27.9% 0.012 264);
+
+    /* Radius fallbacks */
+    --veneer-radius-none: 0px;
+    --veneer-radius-xs:   2px;
+    --veneer-radius-sm:   4px;
+    --veneer-radius-md:   6px;
+    --veneer-radius-lg:   8px;
+    --veneer-radius-xl:   12px;
+    --veneer-radius-2xl:  16px;
+    --veneer-radius-3xl:  24px;
+    --veneer-radius-full: 9999px;
+
+    /* Shadow fallbacks */
+    --veneer-shadow-none: none;
+    --veneer-shadow-xs:   0 1px 2px 0 rgb(0 0 0 / 0.04);
+    --veneer-shadow-sm:   0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+    --veneer-shadow-md:   0 4px 6px -1px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+    --veneer-shadow-lg:   0 10px 15px -3px rgb(0 0 0 / 0.06), 0 4px 6px -4px rgb(0 0 0 / 0.06);
+    --veneer-shadow-xl:   0 20px 25px -5px rgb(0 0 0 / 0.06), 0 8px 10px -6px rgb(0 0 0 / 0.06);
+    --veneer-shadow-2xl:  0 25px 50px -12px rgb(0 0 0 / 0.12);
+    --veneer-shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.04);
+
+    /* Motion fallbacks */
+    --veneer-motion-duration-instant: 0ms;
+    --veneer-motion-duration-fast:    100ms;
+    --veneer-motion-duration-normal:  200ms;
+    --veneer-motion-duration-slow:    400ms;
+    --veneer-motion-duration-slower:  700ms;
+
+    --veneer-motion-easing-linear:    linear;
+    --veneer-motion-easing-ease-in:   cubic-bezier(0.4, 0, 1, 1);
+    --veneer-motion-easing-ease-out:  cubic-bezier(0, 0, 0.2, 1);
+    --veneer-motion-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --veneer-motion-easing-spring:    cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --veneer-motion-transition-subtle:     100ms cubic-bezier(0, 0, 0.2, 1);
+    --veneer-motion-transition-default:    200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --veneer-motion-transition-expressive: 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  * {
+    border-color: var(--veneer-color-border);
+  }
+
+  body {
+    background-color: var(--veneer-color-background);
+    color: var(--veneer-color-foreground);
+    font-family: var(--veneer-font-font-family-sans, system-ui, sans-serif);
+  }
+}
